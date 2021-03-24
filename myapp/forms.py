@@ -6,5 +6,5 @@ from django.db import models
 class Messages(forms.ModelForm):
     class Meta:
         model = Input
-        fields = ('sentence', )
+        fields = ('sentence','document' )
 

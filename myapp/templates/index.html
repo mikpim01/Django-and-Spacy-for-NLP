@@ -770,12 +770,19 @@ Animation Keyframes
 </div> 
 <section class="stark-login">
 
-  <form action="{% url 'submit' %}" method="POST">	
+  <form action="{% url 'submit' %}" method="POST" enctype="multipart/form-data">	
     <div id="fade-box">
           {% csrf_token %}
               {% block form %}
+              <!-- <input type="file" name="xmlfile"> -->
               {% load crispy_forms_tags %}
           {{ form|crispy}}
+
+          {% ifequal process 'off' %}
+          <h2>Error: The Sentence Does Not Match With The UML Diagram Context</h2>
+          {% endifequal %}
+          
+
           {% ifequal flag 'show' %}
           <h2>Original Sentence</h2>
           <h3>{{ sentence }}</h3>
@@ -789,8 +796,8 @@ Animation Keyframes
             {% for respond,respond2 in pos %}
             <tr style="border: 2px solid black">
           
-              <td data-th="Movie Title" style="border: 2px solid black;padding:10px;color:white">{{ respond }}</td>
-              <td data-th="Movie Title" style="border: 2px solid black;padding:10px;color:white">{{ respond2 }}</td>
+              <td data-th="Movie Title" style="border: 2px solid black;padding:10px;color:black">{{ respond }}</td>
+              <td data-th="Movie Title" style="border: 2px solid black;padding:10px;color:black">{{ respond2 }}</td>
             </tr>    
             {% endfor %}
         
@@ -806,7 +813,9 @@ Animation Keyframes
            {% ifequal flag 'show' %}
            <button id='contacted' type="submit" style='margin:3px auto 3px auto;border: 2px #5faee3 solid;border-radius:10px;padding:10px;background-color: white;'>{{ button }}</button>
             {% endifequal %} 
-          
+            {% ifequal process 'off' %}
+            <br/><a href="{% url 'index' %}" style='margin:3px auto 3px auto;border: 2px #5faee3 solid;border-radius:10px;padding:10px;background-color: rgb(204, 64, 64);'>Try Again</a>
+            {% endifequal %}
          
            {% endblock form %}
         </div>
@@ -833,7 +842,7 @@ Animation Keyframes
 
   <script src='https://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
-  <script src="js/index.js"></script>
+  <!-- <script src="js/index.js"></script> -->
   <!-- {% endblock content %} -->
 <script>
    
