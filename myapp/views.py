@@ -116,11 +116,26 @@ def submit(request):
                 # print(s.getAttribute("value"))
             print(finallist) #class Names
             
+            
             itemlist = xmldoc.getElementsByTagName('mxCell')
             allValues = []
             for s in itemlist:
                 allValues.append(s.getAttribute("value"))
                 # print(s.getAttribute("value"))
+            
+            itemlist = xmldoc.getElementsByTagName('object')
+            functions = []
+            for s in itemlist:
+                if s.getAttribute("property")=='func':
+                    functions.append(s.getAttribute("label"))
+                # print(s.getAttribute("value"))
+            print(functions) 
+            for s in finallist:
+                print(s)
+                if s in functions:
+                    finallist.remove(s)
+                    
+            print(finallist)
             associations=[]
             attributes = []
             for el in allValues:
