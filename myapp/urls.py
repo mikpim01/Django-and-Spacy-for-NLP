@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', views.index  , name='index'),
     url(r'submit', views.submit  , name='submit'),
+    url(r'sbvr', views.sbvr  , name='sbvr'),
+    url(r'ocl', views.ocl  , name='ocl'),
 
 ]
 
