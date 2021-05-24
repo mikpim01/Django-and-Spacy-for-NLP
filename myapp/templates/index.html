@@ -153,26 +153,26 @@ body {
 }
 /*PERSONAL*/
 .personal .title{        
-    background: #78CFBF;    
+    background: #3E3E3E;    
 }
 .personal .content,.personal .pt-footer{
-    background: #82DACA;
+    background: #8A8A8A;
 }
 .personal .content:after{	
-	border-top-color: #82DACA;	
+	border-top-color: #3e3e3e;	
 }
 .personal .pt-footer:after{
     border-top-color: #FFFFFF;
 }
 /*PROFESSIONAL*/
 .professional .title{
-    background: #3EC6E0;
+    background: #3e3e3e;
 }
 .professional .content,.professional .pt-footer{
-    background: #53CFE9;
+    background: #8a8a8a;
 }
 .professional .content:after{	
-	border-top-color: #53CFE9;	
+	border-top-color: #3e3e3e;	
 }
 .professional .pt-footer:after{
     border-top-color: #FFFFFF;
@@ -188,7 +188,7 @@ body {
 	border-top-color: #EB6379;	
 }
 .business .pt-footer:after {	
-	border-top-color: #FFFFFF;	
+	border-top-color: #3e3e3e;	
 }
 input#id_sentence {
     border-radius: 3px;
@@ -207,6 +207,8 @@ h2.title {
 }
 button {
     text-transform: uppercase;
+    border: none !important;
+    border-radius: 5px !important;
 }
 h1.heading {
     font-size: 32px !important;
@@ -218,6 +220,13 @@ a#contacted {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
+}
+div#fade-box > h2 {
+    margin: 15px 0px;
+    font-size: 18px;
+}
+.fontawesome-star:before {
+    content: "\f061" !important;
 }
 </style>
 <body>
@@ -290,10 +299,10 @@ a#contacted {
                            {% endifequal %}  
                            {% ifequal button "Generate OCL" %}
                            <li  style='font-size: 18px;color:black;text-transform: uppercase;'><span class="fontawesome-star"></span>Original Sentence</li>
-                            <li style='font-size: 14px;color:black'>{{ sentence }}</li>
+                            <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>{{ sentence }}</li>
                      <br/>
                      <li  style='font-size: 18px;color:black;text-transform: uppercase;'><span class="fontawesome-star"></span>SBVR Converted Sentence</li>
-                           <li style='font-size: 14px;color:black'>It is necessary that {{ customized_sentence }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>It is necessary that {{ customized_sentence }}</li>
                            <br/>
                            <a class='title' href="http://localhost:8000/ocl?sentence={{ customized_sentence }}&condition={{ condition }}&value={{ value }}&classnames={{ classnames }}" id='contacted'  style='background-color: rgb(6, 197, 211);margin:3px auto 3px auto;border: 2px #5faee3 solid;border-radius:10px;padding:10px;color: white;'>{{ button }}</a>
                                
@@ -301,27 +310,27 @@ a#contacted {
 
                            {% ifequal flag 'show' %}
                            <li  style='font-size: 18px;color:black;text-transform: uppercase;padding: 0px !important;'><span class="fontawesome-star"></span>Original Sentence</li>
-                           <li style='font-size: 12px;color:black'>{{ sentence }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>{{ sentence }}</li>
 
                            <li  style='font-size: 18px;color:black;text-transform: uppercase;padding: 15px 0px 0px 0px !important;'><span class="fontawesome-star"></span>Class Names</li>
-                           <li style='font-size: 12px;color:black'>{{ classnames }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>{{ classnames }}</li>
                            <li  style='font-size: 18px;color:black;text-transform: uppercase;padding: 15px 0px 0px 0px !important;'><span class="fontawesome-star"></span>Attributes</li>
-                           <li style='font-size: 12px;color:black'>{{ attributes}}</li>
-                           <li style='font-size: 12px;color:black'>The Nouns are: {{ nouns }}</li>
-                           <li style='font-size: 12px;color:black'>The Verbs are: {{ verbs }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'> {{ attributes }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>The Nouns are: {{ nouns }}</li>
+                           <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>The Verbs are: {{ verbs }}</li>
 
                            <li  style='font-size: 18px;color:black;text-transform: uppercase;padding: 15px 0px 0px 0px !important;'><span class="fontawesome-star"></span>Associations</li>
-                            <li style='font-size: 12px;color:black'>{{ associations }}</li>
+                            <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>{{ associations }}</li>
           {% endifequal %}
           {% ifequal button "Try A New Sentence?" %}
           <li  style='font-size: 15px;color:black'><span class="fontawesome-star"></span>SBVR Converted Sentence</li>
-          <li style='font-size: 12px;color:black'>It is necessary that {{ sentence }}</li>
+          <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>It is necessary that {{ sentence }}</li>
 <br/>
 <li  style='font-size: 15px;color:black'><span class="fontawesome-star"></span>OCL Constraints</li> 
-      <li style='font-size: 12px;color:black'>Context: {{ classnames.0 }}</li>
-      <li style='font-size: 12px;color:black'>Invariant: {{ classnames.0 }}.{{ classnames.1 }} {{ condition }} {{ value }}</li>
+      <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>Context: {{ classnames.0 }}</li>
+      <li style='font-size: 14px !important;color:black;margin-left: 50px !important;'>Invariant: {{ classnames.0 }}.{{ classnames.1 }} {{ condition }} {{ value }}</li>
       <br/>
-      <a href="http://localhost:8000/" id='contacted'  style='background-color: color;margin:3px auto 3px auto;border: 2px #5faee3 solid;border-radius:10px;padding:10px;background-color: white;'>{{ button }}</a>
+      <a href="http://localhost:8000/" id='contacted'  style='background-color: color;margin:3px auto 3px auto;border: 2px #3e3e3e solid;border-radius:5px;padding:10px;background-color: white;float: right;margin: -15px;'>{{ button }}</a>
           
       {% endifequal %}
       
@@ -333,7 +342,7 @@ a#contacted {
               <!-- /FEATURES -->
               <!-- PT-FOOTER -->
               <div class="pt-footer">
-                  <p>NL TO OCL</p>
+                  <p>NL TO OCL COnversion Using SBVR</p>
               </div>
               <!-- /PT-FOOTER -->
           </div>

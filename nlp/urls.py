@@ -19,6 +19,12 @@ from django.conf.urls import url,include
 from django.conf.urls.static import static
 from django.conf import settings
 
+admin.site.site_header = 'NL to OCL Conversion using SBVR'
+admin.site.index_title = 'NL to OCL Conversion using SBVR'              
+admin.site.site_title = 'NL to OCL Conversion using SBVR'
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("myapp.urls")),
